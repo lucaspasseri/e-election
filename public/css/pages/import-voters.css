@@ -1,0 +1,65 @@
+.main.import-voters-page .main-header {
+	margin: 1em var(--horizontal-margin);
+}
+
+.main.import-voters-page .simple-button {
+	margin: 0 auto;
+	max-width: 300px;
+	font: inherit;
+	background-color: #f0f0f0;
+	border: 0;
+	color: #242424;
+	border-radius: 0.5em;
+	font-size: 1.35rem;
+	padding: 0.375em 1em;
+	font-weight: 600;
+	text-shadow: 0 0.0625em 0 #fff;
+	box-shadow:
+		inset 0 1px 0 rgba(255, 255, 255, 0.8),
+		0 1px 0 rgba(255, 255, 255, 0.25),
+		0 2px 0 rgba(255, 255, 255, 0.3),
+		0 4px 0 rgba(255, 255, 255, 0.24),
+		0 5px 0 rgba(255, 255, 255, 0.2),
+		0 6px 0 rgba(255, 255, 255, 0.16),
+		0 7px 0 rgba(255, 255, 255, 0.12),
+		0 7px 8px rgba(255, 255, 255, 0.08);
+	transition: 0.15s ease;
+	cursor: pointer;
+
+	&:active {
+		translate: 0 0.225em;
+		box-shadow:
+			inset 0 0.03em 0 0 rgba(255, 255, 255, 0.8),
+			0 0.03em 0 0 rgba(255, 255, 255, 0.35),
+			0 0.0625em 0 0 rgba(255, 255, 255, 0.25),
+			0 0.125em 0 0 rgba(255, 255, 255, 0.2),
+			0 0.125em 0 0 rgba(255, 255, 255, 0.16),
+			0 0.2em 0 0 rgba(255, 255, 255, 0.12),
+			0 0.225em 0 0 rgba(255, 255, 255, 0.1),
+			0 0.225em 0.375em 0 rgba(255, 255, 255, 0.08);
+	}
+}
+
+.main.import-voters-page .import-voters-form-container {
+	margin: 1em var(--horizontal-margin);
+	background-color: var(--color-stitch-secondary);
+	border-radius: 4px;
+	padding: 0.8em 0.8em 1em;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		height: fit-content;
+
+		label {
+			font-weight: 700;
+			color: var(--color-stitch);
+			letter-spacing: 0.1em;
+			margin-bottom: 0.2em;
+		}
+
+		input {
+			margin-bottom: 1.2em;
+		}
+	}
+}

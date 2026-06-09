@@ -21,10 +21,12 @@
 		"seed": "node db/populatedb.js"
 	},
 	"dependencies": {
+		"csv-parse": "^6.2.1",
 		"ejs": "^6.0.1",
 		"express": "^5.2.1",
 		"express-ejs-layouts": "^2.5.1",
 		"express-session": "^1.19.0",
+		"multer": "^2.1.1",
 		"pg": "^8.21.0"
 	},
 	"devDependencies": {

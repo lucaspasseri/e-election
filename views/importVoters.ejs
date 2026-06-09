@@ -1,0 +1,23 @@
+<main class="main import-voters-page">
+	<div class="main-header">
+		<h1>Import voters page</h1>
+	</div>
+
+	<div class="import-voters-form-container">
+		<form
+			method="POST"
+			action="/admin/elections/1/import-voters"
+			enctype="multipart/form-data"
+		>
+			<label for="import-voters-file-input">Upload the .csv file:</label>
+			<input
+				id="import-voters-file-input"
+				type="file"
+				name="votersFile"
+				accept=".csv"
+				required
+			/>
+			<button class="simple-button" type="submit">Send</button>
+		</form>
+	</div>
+</main>
