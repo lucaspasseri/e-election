@@ -7,6 +7,7 @@ import expressEjsLayouts from "express-ejs-layouts";
 
 import indexRouter from "./routes/index.js";
 import adminRouter from "./routes/admin.js";
+import voteRouter from "./routes/vote.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -33,6 +34,7 @@ app.use(express.json());
 
 app.use("/", indexRouter);
 app.use("/admin", adminRouter);
+app.use("/vote", voteRouter);
 
 app.use((err, _req, res, _next) => {
 	console.error(err.stack);

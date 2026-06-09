@@ -17,7 +17,8 @@
 	"scripts": {
 		"start": "node app.js",
 		"dev": "node --watch app.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "vitest",
+		"seed": "node db/populatedb.js"
 	},
 	"dependencies": {
 		"ejs": "^6.0.1",
@@ -25,5 +26,8 @@
 		"express-ejs-layouts": "^2.5.1",
 		"express-session": "^1.19.0",
 		"pg": "^8.21.0"
+	},
+	"devDependencies": {
+		"vitest": "^4.1.8"
 	}
 }
