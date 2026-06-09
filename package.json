@@ -1,0 +1,29 @@
+{
+	"name": "e-election",
+	"version": "1.0.0",
+	"description": "",
+	"homepage": "https://github.com/lucaspasseri/e-election#readme",
+	"bugs": {
+		"url": "https://github.com/lucaspasseri/e-election/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lucaspasseri/e-election.git"
+	},
+	"license": "ISC",
+	"author": "",
+	"type": "module",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js",
+		"dev": "node --watch app.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"dependencies": {
+		"ejs": "^6.0.1",
+		"express": "^5.2.1",
+		"express-ejs-layouts": "^2.5.1",
+		"express-session": "^1.19.0",
+		"pg": "^8.21.0"
+	}
+}

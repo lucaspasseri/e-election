@@ -1,0 +1,105 @@
+@view-transition {
+	navigation: auto;
+}
+
+:root {
+	--color-bg: #0b0c10;
+	--color-surface: #16181d;
+
+	--color-primary: #e63946;
+	--color-primary-hover: #c1121f;
+
+	--color-stitch: #ffb4ac;
+	--color-stitch-secondary: #1c1c1c;
+	--color-stitch-text: #670505;
+
+	--color-accent: #2ec4b6;
+
+	--color-text: #e5e7eb;
+	--color-text-muted: #6b7280;
+	--color-text-dark: rgb(60, 63, 70);
+	--color-border: #2a2d34;
+
+	--box-shadow-header:
+		rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px,
+		rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px,
+		rgba(0, 0, 0, 0.07) 0px 16px 16px;
+	--box-shadow-footer:
+		rgba(0, 0, 0, 0.07) 0px -1px 1px, rgba(0, 0, 0, 0.07) 0px -2px 2px,
+		rgba(0, 0, 0, 0.07) 0px -4px 4px, rgba(0, 0, 0, 0.07) 0px -8px 8px,
+		rgba(0, 0, 0, 0.07) 0px -16px 16px;
+
+	--header-spacing: 6.4em;
+	--footer-spacing: 4.2em;
+	--header-margin-top: 0.2em;
+
+	--horizontal-margin: 2rem;
+
+	--dashed-line-color: var(--color-text);
+	--vertical-dashed-line: repeating-linear-gradient(
+		to bottom,
+		var(--dashed-line-color) 0 7px,
+		transparent 7px 12px
+	);
+
+	--horizontal-dashed-line: repeating-linear-gradient(
+		to right,
+		var(--dashed-line-color) 0 7px,
+		transparent 7px 12px
+	);
+
+	@media screen and (width < 500px) {
+		--horizontal-margin: 1rem;
+	}
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 100ms;
+}
+
+::view-transition-group(root) {
+	overflow: clip;
+}
+
+html,
+body {
+	background-color: var(--color-bg);
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+ul {
+	list-style: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 1000px #111 inset !important;
+	-webkit-text-fill-color: #fff !important;
+	caret-color: #fff;
+}
+
+body > .content {
+	flex: 1;
+	min-height: 0;
+}
+
+main {
+	color: var(--color-text);
+	height: calc(100dvh - var(--header-spacing) - var(--footer-spacing));
+	margin-top: calc(var(--header-spacing) + var(--header-margin-top));
+	overflow-y: auto;
+}
