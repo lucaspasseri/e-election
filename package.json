@@ -16,9 +16,9 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "node app.js",
-		"dev": "node --watch app.js",
-		"test": "vitest",
-		"seed": "node db/populatedb.js"
+		"dev": "node --env-file-if-exists=.env --watch app.js",
+		"seed": "node --env-file-if-exists=.env db/populatedb.js",
+		"test": "vitest"
 	},
 	"dependencies": {
 		"csv-parse": "^6.2.1",

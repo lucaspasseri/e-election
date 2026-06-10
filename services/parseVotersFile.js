@@ -1,14 +1,6 @@
 import { parse } from "csv-parse/sync";
 
 async function parseVotersFile(db, { votersFile, electionId }) {
-	console.log({
-		votersFile,
-		hasBuffer: Boolean(votersFile?.buffer),
-		path: votersFile?.path,
-		originalname: votersFile?.originalname,
-		size: votersFile?.size,
-	});
-
 	if (!votersFile) {
 		throw new Error("Voters file is required");
 	}
@@ -35,24 +27,25 @@ async function parseVotersFile(db, { votersFile, electionId }) {
 
 		for (const record of records) {
 			const name = record["Nome"];
+			const cnf = record["CNF"];
 			const email = record["E-mail"];
-
-			if (!name || !email) {
-				// throw new Error("Each voter must have name and email");
-				continue;
-			}
+			const cel1 = record["Celular 1"];
+			const cel2 = record["Celular 2"];
 
 			const { rows } = await client.query(
 				`
 				INSERT INTO voters (
 					election_id,
 					name,
-					email
+					external_code,
+					email,
+					phone, 
+					phone2
 				)
-				VALUES ($1, $2, $3)
+				VALUES ($1, $2, $3, $4, $5, $6)
 				RETURNING *
 				`,
-				[electionId, name, email],
+				[electionId, name, cnf, email, cel1, cel2],
 			);
 
 			importedVoters.push(rows[0]);

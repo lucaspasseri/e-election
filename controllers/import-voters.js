@@ -16,8 +16,6 @@ async function postImportVoters(req, res, next) {
 			electionId,
 		});
 
-		console.log({ totalRows, importedCount, voters });
-
 		res.redirect("/admin/elections/1/import-voters");
 	} catch (err) {
 		next(err);

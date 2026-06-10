@@ -1,6 +1,13 @@
 import { Client } from "pg";
 
 const sql = `
+DROP TABLE IF EXISTS votes CASCADE;
+DROP TABLE IF EXISTS audit_logs CASCADE;
+DROP TABLE IF EXISTS voting_tokens CASCADE;
+DROP TABLE IF EXISTS voters CASCADE;
+DROP TABLE IF EXISTS slates CASCADE;
+DROP TABLE IF EXISTS elections CASCADE;
+
 CREATE TABLE elections (
 	id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 	name TEXT NOT NULL,
@@ -24,6 +31,7 @@ CREATE TABLE voters (
 	name TEXT NOT NULL,
 	email TEXT,
 	phone TEXT,
+	phone2 TEXT,
 
 	has_voted BOOLEAN NOT NULL DEFAULT false,
 	voted_at TIMESTAMPTZ,
@@ -62,10 +70,19 @@ CREATE TABLE audit_logs (
 
 	created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+INSERT INTO elections (name, starts_at, ends_at, status)
+VALUES (
+	'Test Election',
+	now() - interval '1 day',
+	now() + interval '7 days',
+	'draft'
+);
 `;
 
 async function main() {
 	console.log("Seeding database...");
+	console.log({ url: process.env.DATABASE_URL });
 
 	const client = new Client({
 		connectionString: process.env.DATABASE_URL,
